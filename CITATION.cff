@@ -10,6 +10,17 @@ authors:
 repository-code: "https://github.com/annefou/fiesta-galaxy-meltponds-eo"
 license: MIT
 version: "0.1.0"
+date-released: "2026-06-26"
+# Concept DOI (resolves to the latest version); the v0.1.0 version DOI is
+# 10.5281/zenodo.20943719.
+doi: "10.5281/zenodo.20943718"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.20943718"
+    description: "Concept DOI (resolves to the latest version)"
+  - type: doi
+    value: "10.5281/zenodo.20943719"
+    description: "Version DOI for v0.1.0"
 abstract: >-
   A cross-discipline OSCARS-FIESTA example: the standard Galaxy bioimage-analysis
   workflow (threshold, label, count, measure) run unchanged on Sentinel-2 imagery
