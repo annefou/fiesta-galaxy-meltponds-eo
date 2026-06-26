@@ -46,6 +46,15 @@ A 10 km × 10 km clip of scene `S2A_22WEV_20190723_0_L2A` (2019-07-23, 2.6 %
 cloud) over the Russell–Leverett ice margin. 10 m pixels → **100 m² per pixel**.
 See [`data/README.md`](../data/README.md) for full provenance.
 
+```{figure} images/truecolor.png
+:alt: Sentinel-2 true-colour image of the Greenland melt zone
+:width: 100%
+
+The input: a true-colour view of the bare-ice ablation zone, dotted with cyan
+supraglacial melt ponds and lakes (and a dark crevasse field, lower right). This
+is what the workflow will find and count.
+```
+
 > ### Tip — upload
 > Upload the two `.tif` files and the `.png` to a new Galaxy history. Make sure
 > the two bands are detected as datatype **`tiff`** and the preview as **`png`**.
