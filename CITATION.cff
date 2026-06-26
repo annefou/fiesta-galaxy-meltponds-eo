@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: "fiesta-galaxy-meltponds-eo"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: "Fouilloux"
+    given-names: "Anne"
+    orcid: "https://orcid.org/0000-0002-1784-2920"
+    affiliation: "Lifewatch ERIC"
+repository-code: "https://github.com/annefou/fiesta-galaxy-meltponds-eo"
+license: MIT
+version: "0.1.0"
+abstract: >-
+  A cross-discipline OSCARS-FIESTA example: the standard Galaxy bioimage-analysis
+  workflow (threshold, label, count, measure) run unchanged on Sentinel-2 imagery
+  to map and count supraglacial melt ponds on the Greenland ice sheet. Uses only
+  deployed imgteam tools plus an NDWI-ice band-math step - no new tool development.
+keywords:
+  - galaxy
+  - image-analysis
+  - cross-discipline
+  - earth-observation
+  - cryosphere
+  - supraglacial-lakes
+  - melt-ponds
+  - sentinel-2
+  - NDWI
+  - FIESTA
+  - OSCARS
