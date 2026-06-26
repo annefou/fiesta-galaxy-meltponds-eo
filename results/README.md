@@ -1,5 +1,13 @@
 # Results
 
+```{figure} overlay.png
+:alt: Detected melt-pond contours on the Sentinel-2 true-colour image
+:width: 100%
+
+`overlay_images` output: detected pond contours (red) on the Sentinel-2
+true-colour image. 90 ponds, 1.46 km² of melt water.
+```
+
 Outputs of the workflow run on the demo chip
 ([public Galaxy history](https://usegalaxy.eu/u/annefou/h/11ac94870d0bb33aee961e7883fc2313)).
 

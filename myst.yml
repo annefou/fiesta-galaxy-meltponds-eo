@@ -1,0 +1,33 @@
+version: 1
+project:
+  title: "Counting Greenland melt ponds with off-the-shelf bioimage tools"
+  authors:
+    - name: "Anne Fouilloux"
+      orcid: "https://orcid.org/0000-0002-1784-2920"
+      affiliations:
+        - "Lifewatch ERIC"
+  github: https://github.com/annefou/fiesta-galaxy-meltponds-eo
+  license: MIT
+  keywords:
+    - galaxy
+    - image-analysis
+    - cross-discipline
+    - earth-observation
+    - supraglacial-lakes
+    - sentinel-2
+    - FIESTA
+    - OSCARS
+  toc:
+    - file: index.md
+    - file: tutorial/tutorial.md
+    - file: results/README.md
+    - file: data/README.md
+    - file: workflows/README.md
+site:
+  title: "Greenland melt ponds — cross-discipline Galaxy imaging"
+  # Local favicon so the MyST build never fetches the remote default (that fetch
+  # is flaky in CI and can fail the build with ERR_STREAM_PREMATURE_CLOSE).
+  options:
+    favicon: figures/favicon.png
+# Do NOT set base_url here — MyST silently ignores it. BASE_URL is set as an env
+# var on the `myst build` step in .github/workflows/jupyter-book.yml.
