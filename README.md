@@ -1,6 +1,5 @@
 # Counting Greenland melt ponds with off-the-shelf bioimage tools
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20943718.svg)](https://doi.org/10.5281/zenodo.20943718)
 [![Jupyter Book](https://img.shields.io/badge/book-online-blue)](https://annefou.github.io/fiesta-galaxy-meltponds-eo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
