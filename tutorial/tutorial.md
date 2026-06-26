@@ -44,7 +44,7 @@ From this repository's [`data/`](../data) folder (or
 
 A 10 km × 10 km clip of scene `S2A_22WEV_20190723_0_L2A` (2019-07-23, 2.6 %
 cloud) over the Russell–Leverett ice margin. 10 m pixels → **100 m² per pixel**.
-See [`data/README.md`](../data/README.md) for full provenance.
+See [`data/provenance.md`](../data/provenance.md) for full provenance.
 
 ```{figure} images/truecolor.png
 :alt: Sentinel-2 true-colour image of the Greenland melt zone

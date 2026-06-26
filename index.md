@@ -34,9 +34,9 @@ index for melt ponds.
 | Page | Contents |
 |---|---|
 | [Tutorial](tutorial/tutorial.md) | step-by-step walkthrough (cell-nuclei → melt-ponds) |
-| [Results](results/README.md) | the 90-pond detection, areas, overlay |
-| [Data](data/README.md) | Sentinel-2 scene provenance & bands |
-| [Workflow](workflows/README.md) | the importable Galaxy `.ga` |
+| [Results](results/results.md) | the 90-pond detection, areas, overlay |
+| [Data](data/provenance.md) | Sentinel-2 scene provenance & bands |
+| [Workflow](workflows/import.md) | the importable Galaxy `.ga` |
 
 ## Run it yourself
 

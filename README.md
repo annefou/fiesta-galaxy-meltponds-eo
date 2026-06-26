@@ -71,7 +71,7 @@ python scripts/make_chip.py data/
 
 A 10 km × 10 km clip of the public scene `S2A_22WEV_20190723_0_L2A` (tile T22WEV,
 2019-07-23, 2.6 % cloud) over the SW Greenland melt zone. 10 m pixels → 100 m²
-each. Full provenance and licence: [`data/README.md`](data/README.md).
+each. Full provenance and licence: [`data/provenance.md`](data/provenance.md).
 Independent lake outlines for validation: Glen et al. (2025),
 [Zenodo 10.5281/zenodo.11645884](https://doi.org/10.5281/zenodo.11645884).
 

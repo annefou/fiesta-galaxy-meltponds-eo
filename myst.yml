@@ -20,9 +20,9 @@ project:
   toc:
     - file: index.md
     - file: tutorial/tutorial.md
-    - file: results/README.md
-    - file: data/README.md
-    - file: workflows/README.md
+    - file: results/results.md
+    - file: data/provenance.md
+    - file: workflows/import.md
 site:
   title: "Greenland melt ponds — cross-discipline Galaxy imaging"
   # Local favicon so the MyST build never fetches the remote default (that fetch
