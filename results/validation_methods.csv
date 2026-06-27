@@ -1,0 +1,4 @@
+method,area_km2,precision,recall,f1,iou
+Williamson 2018 (NDWIice > 0.25) — this study,1.458,0.576,0.884,0.697,0.535
+Moussavi 2020 threshold (NDWIice > 0.19),1.943,0.453,0.927,0.609,0.438
+Otsu (automatic),1.173,0.648,0.801,0.717,0.558

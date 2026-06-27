@@ -45,6 +45,40 @@ scikit-image one (border handling + footprint), which slightly changes how many
 single-pixel specks survive. The melt-water **area** — the science-relevant
 quantity — is identical to three significant figures.
 
+## Validation against the state of the art
+
+`notebooks/05_validation.py` benchmarks the method and checks it against an
+independent, published dataset (run with `pixi run snakemake validation --cores 1`).
+
+```{figure} ../figures/validation_groundtruth.png
+:alt: Agreement map and method benchmark against Glen et al. 2024
+:width: 100%
+
+Left: our detection vs the Glen et al. (2024) lake outlines (green = agree,
+red = ours only, blue = Glen only). Right: IoU of three thresholding methods
+against the published lakes.
+```
+
+**Ground truth — Glen et al. (2024)** ([Zenodo 10.5281/zenodo.11645884](https://doi.org/10.5281/zenodo.11645884)),
+Sentinel-2 lakes for this exact area on **2019-07-25** (2 days after our scene):
+
+| Our method vs Glen lakes | precision | recall | F1 | IoU |
+|---|---|---|---|---|
+| Williamson 2018 — NDWIᵢ𝒸 > 0.25 (this study) | 0.58 | **0.88** | 0.70 | 0.54 |
+| Moussavi 2020 threshold — NDWIᵢ𝒸 > 0.19 | 0.45 | 0.93 | 0.61 | 0.44 |
+| Otsu (automatic, ≈0.32) | 0.65 | 0.80 | 0.72 | **0.56** |
+
+**What this says, honestly:** the off-the-shelf method **recovers ~88 % of Glen's
+mapped lake area** (recall) — a strong result for a generic, single-threshold
+bioimage pipeline. Precision is ~0.58 because the threshold also flags meltwater
+**channels, lake margins and crevasse water** that Glen's *lakes-only* inventory
+excludes (channels are cataloged separately), plus the irreducible 2-day melt
+evolution. Automatic **Otsu** matches the published lakes marginally better than
+the literature 0.25 cut. So: as a **water-extent detector** the reuse is sound; as
+a **lakes-only classifier** it over-counts, exactly as expected without
+shape/context filtering — and that is the honest limit of the cross-discipline
+transfer.
+
 ## Notes
 
 Areas in `pond_features.tabular` are in **pixels** (the Galaxy image tools drop

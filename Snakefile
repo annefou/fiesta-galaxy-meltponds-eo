@@ -58,3 +58,19 @@ rule figures:
         "figures/ndwi.png",
     shell:
         "python notebooks/04_figures.py"
+
+
+# Validation against the state of the art. NOT part of `rule all`: it downloads
+# the ~79 MB Glen et al. (2024) outlines, so it is run on demand with
+#     pixi run snakemake validation --cores 1
+# (kept out of the CI smoke run to avoid a large download on every push).
+rule validation:
+    input:
+        "data/processed/ndwi.nc",
+        *RAW_TIFS,
+    output:
+        "results/validation_methods.csv",
+        "results/validation_summary.json",
+        "figures/validation_groundtruth.png",
+    shell:
+        "python notebooks/05_validation.py"

@@ -26,6 +26,10 @@ rasterio = ">=1.3"
 scikit-image = ">=0.22"
 tifffile = "*"
 imageio = "*"
+# --- vector I/O for the ground-truth comparison (Glen et al. 2024 outlines) ---
+geopandas = ">=0.14"
+pyogrio = "*"
+shapely = "*"
 # --- notebook execution ---
 jupytext = "*"
 nbclient = "*"

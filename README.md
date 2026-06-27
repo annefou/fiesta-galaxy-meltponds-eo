@@ -62,6 +62,14 @@ threshold of Williamson et al. (2018); switching to automatic Otsu thresholding
 - **Importable workflow:** [`workflows/meltpond_mapping_sentinel2.ga`](workflows/meltpond_mapping_sentinel2.ga)
 - **Per-pond measurements:** [`results/pond_features.tabular`](results/pond_features.tabular)
 
+**Validated against the state of the art:** benchmarked vs the independently
+published Sentinel-2 lake outlines of **Glen et al. (2024)** for this exact area
+(2 days apart). The off-the-shelf method **recovers ~88 % of their mapped lake
+area** (recall 0.88, IoU 0.54); it over-counts only because a single threshold
+also captures channels/crevasse water that a purpose-built lakes-only inventory
+excludes. Full benchmark (incl. Otsu and the Moussavi 2020 threshold) in
+[`results/results.md`](results/results.md#validation-against-the-state-of-the-art).
+
 ## Reproduce it
 
 **Option A — run in Galaxy (no install).** Import the workflow from

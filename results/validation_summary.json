@@ -1,0 +1,23 @@
+{
+  "ground_truth": "Glen et al. (2024), Sentinel-2, 2019-07-25",
+  "ground_truth_doi": "10.5281/zenodo.11645884",
+  "temporal_gap_days": 2,
+  "this_study_area_km2": 1.458,
+  "glen_lakes_area_km2": 0.95,
+  "glen_lakes_plus_slush_area_km2": 0.961,
+  "this_study_vs_lakes": {
+    "precision": 0.576,
+    "recall": 0.884,
+    "f1": 0.697,
+    "iou": 0.535,
+    "area_km2": 1.458
+  },
+  "this_study_vs_all_water": {
+    "precision": 0.576,
+    "recall": 0.874,
+    "f1": 0.694,
+    "iou": 0.532,
+    "area_km2": 1.458
+  },
+  "note": "Recall ~0.88: the off-the-shelf method recovers ~88% of Glen's mapped lake area. Precision ~0.58: it also flags ~40% more water \u2014 meltwater channels and lake margins that Glen's lakes-only inventory excludes (channels are cataloged separately as 'Rivers'; slush adds negligible area here), compounded by the 2-day acquisition gap. As a total-water detector the result is broadly consistent with the published lakes; as a lakes-only classifier a single threshold with no shape/context filtering over-counts, exactly as expected."
+}
