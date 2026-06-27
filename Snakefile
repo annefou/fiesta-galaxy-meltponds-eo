@@ -74,3 +74,16 @@ rule validation:
         "figures/validation_groundtruth.png",
     shell:
         "python notebooks/05_validation.py"
+
+
+# The communications figure is generated from the same data + code as the science
+# (it downloads the reused tutorial's own nuclei images). NOT part of `rule all`.
+#     pixi run snakemake linkedin_figure --cores 1
+rule linkedin_figure:
+    input:
+        "results/labels.tif",
+        *RAW_TIFS,
+    output:
+        "figures/linkedin_crossdiscipline.png",
+    shell:
+        "python scripts/make_linkedin_figure.py"
