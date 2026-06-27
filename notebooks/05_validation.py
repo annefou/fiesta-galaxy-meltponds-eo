@@ -172,27 +172,32 @@ for b, role in (("B02", "blue"), ("B03", "green"), ("B04", "red")):
         bands[b] = src.read(1).astype("float32")
 tci = np.dstack([stretch(bands["B04"]), stretch(bands["B03"]), stretch(bands["B02"])])
 
+# Okabe-Ito colour-blind-safe palette (distinguishable for all common colour
+# vision deficiencies) — replaces the red/green agreement colours.
+OI_AGREE = (0.0, 0.620, 0.451)   # #009E73 bluish green — agreement (TP)
+OI_OURS = (0.902, 0.624, 0.0)    # #E69F00 orange — ours only (FP)
+OI_GLEN = (0.0, 0.447, 0.698)    # #0072B2 blue — Glen only (FN)
+
 pred = ndwi_s > 0.25
 agree = np.zeros((H, W, 4), dtype=float)
-agree[pred & gt_mask] = (0, 1, 0, 0.55)        # TP green
-agree[pred & ~gt_mask] = (1, 0, 0, 0.55)       # FP (ours only) red
-agree[~pred & gt_mask] = (0, 0.4, 1, 0.55)     # FN (Glen only) blue
+agree[pred & gt_mask] = (*OI_AGREE, 0.65)      # TP
+agree[pred & ~gt_mask] = (*OI_OURS, 0.65)      # FP (ours only)
+agree[~pred & gt_mask] = (*OI_GLEN, 0.65)      # FN (Glen only)
 
 fig, ax = plt.subplots(1, 2, figsize=(15, 7.5))
 ax[0].imshow(tci); ax[0].imshow(agree)
 ax[0].set_title("This study vs Glen et al. 2024 lakes\n"
-                f"green=agree  red=ours only  blue=Glen only  (IoU={summary['this_study_vs_lakes']['iou']})")
-extent = [bounds.left, bounds.right, bounds.bottom, bounds.top]
-ax[1].bar(range(len(table)), table["iou"], color=["#1b9e77", "#d95f02", "#7570b3"])
+                f"green=agree  orange=ours only  blue=Glen only  (IoU={summary['this_study_vs_lakes']['iou']})")
+ax[1].bar(range(len(table)), table["iou"], color=[OI_GLEN, OI_OURS, OI_AGREE])
 ax[1].set_xticks(range(len(table)))
 ax[1].set_xticklabels(["Williamson\n0.25 (ours)", "Moussavi\n0.19", "Otsu"], fontsize=9)
 ax[1].set_ylabel("IoU vs Glen et al. ground truth"); ax[1].set_ylim(0, 1)
 ax[1].set_title("Method benchmark")
 for a in (ax[0],):
     a.set_xticks([]); a.set_yticks([])
-fig.legend(handles=[Patch(color=(0, 1, 0), label="agreement (TP)"),
-                    Patch(color=(1, 0, 0), label="ours only (FP)"),
-                    Patch(color=(0, 0.4, 1), label="Glen only (FN)")],
+fig.legend(handles=[Patch(color=OI_AGREE, label="agreement (TP)"),
+                    Patch(color=OI_OURS, label="ours only (FP)"),
+                    Patch(color=OI_GLEN, label="Glen only (FN)")],
            loc="lower center", ncol=3)
 fig.savefig(FIG / "validation_groundtruth.png", dpi=130, bbox_inches="tight")
 plt.close(fig)

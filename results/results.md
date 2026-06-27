@@ -55,8 +55,8 @@ independent, published dataset (run with `pixi run snakemake validation --cores 
 :width: 100%
 
 Left: our detection vs the Glen et al. (2024) lake outlines (green = agree,
-red = ours only, blue = Glen only). Right: IoU of three thresholding methods
-against the published lakes.
+orange = ours only, blue = Glen only — Okabe–Ito colour-blind-safe palette).
+Right: IoU of three thresholding methods against the published lakes.
 ```
 
 **Ground truth — Glen et al. (2024)** ([Zenodo 10.5281/zenodo.11645884](https://doi.org/10.5281/zenodo.11645884)),
