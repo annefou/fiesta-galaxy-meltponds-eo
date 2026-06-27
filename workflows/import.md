@@ -20,7 +20,7 @@ needed.
 3. Run the workflow, mapping the three inputs.
 
 Or just open the public, already-run copy and import from there:
-<https://usegalaxy.eu/u/annefou/h/11ac94870d0bb33aee961e7883fc2313>
+<https://usegalaxy.eu/published/history?id=11ac94870d0bb33aee961e7883fc2313>
 
 ## Provenance
 

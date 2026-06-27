@@ -52,7 +52,7 @@ threshold of Williamson et al. (2018); switching to automatic Otsu thresholding
 (≈ 0.32 here) is a one-click sensitivity check.
 
 - **Reproducible Galaxy history (public, runs as-is):**
-  <https://usegalaxy.eu/u/annefou/h/11ac94870d0bb33aee961e7883fc2313>
+  <https://usegalaxy.eu/published/history?id=11ac94870d0bb33aee961e7883fc2313>
 - **Importable workflow:** [`workflows/meltpond_mapping_sentinel2.ga`](workflows/meltpond_mapping_sentinel2.ga)
 - **Per-pond measurements:** [`results/pond_features.tabular`](results/pond_features.tabular)
 

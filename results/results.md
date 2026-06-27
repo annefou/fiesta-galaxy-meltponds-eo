@@ -9,7 +9,7 @@ true-colour image. 90 ponds, 1.46 km² of melt water.
 ```
 
 Outputs of the workflow run on the demo chip
-([public Galaxy history](https://usegalaxy.eu/u/annefou/h/11ac94870d0bb33aee961e7883fc2313)).
+([public Galaxy history](https://usegalaxy.eu/published/history?id=11ac94870d0bb33aee961e7883fc2313)).
 
 | File | Produced by | Contents |
 |---|---|---|

@@ -41,7 +41,7 @@ index for melt ponds.
 ## Run it yourself
 
 - **Public Galaxy history (already run, import as-is):**
-  <https://usegalaxy.eu/u/annefou/h/11ac94870d0bb33aee961e7883fc2313>
+  <https://usegalaxy.eu/published/history?id=11ac94870d0bb33aee961e7883fc2313>
 - **Workflow:** [`workflows/meltpond_mapping_sentinel2.ga`](workflows/meltpond_mapping_sentinel2.ga)
 - **Regenerate the input chip from source (no login):** `python scripts/make_chip.py data/`
 

@@ -147,7 +147,7 @@ than 500 m².
 
 A fully-run, public copy of this analysis is here — import it or just look at every
 intermediate dataset:
-<https://usegalaxy.eu/u/annefou/h/11ac94870d0bb33aee961e7883fc2313>
+<https://usegalaxy.eu/published/history?id=11ac94870d0bb33aee961e7883fc2313>
 
 > ### Comment — is 90 right?
 > `count_objects` counts every connected blob, including a few single-pixel
