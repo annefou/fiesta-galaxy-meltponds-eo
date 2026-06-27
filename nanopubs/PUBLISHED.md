@@ -2,23 +2,28 @@
 
 This file is the canonical registry of published nanopub URIs for this replication. Update it as you publish each step.
 
+**Chain shape:** question-rooted, method-reuse (PICO anchor — no upstream paper to
+confirm/dispute; we reuse the GTN tutorial `gxy.io/GTN:T00181` cross-discipline).
+Drafts are in `drafts/`, ready for review and manual publishing on
+`https://platform.sciencelive4all.org`. Publish **in order**; after each, paste the
+returned `RA…` URI into the table and the next draft pulls it from here.
+
 ## Chain
 
-| Step | Template | URI | Published |
-|---|---|---|---|
-| 01 | Quote-with-comment (or PICO / PCC) | _not yet published_ | |
-| 02 | AIDA Sentence | _not yet published_ | |
-| 03 | FORRT Claim | _not yet published_ | |
-| 04 | FORRT Replication Study | _not yet published_ | |
-| 05 | FORRT Replication Outcome | _not yet published_ | |
-| 06 | CiTO Citation | _not yet published_ | |
+| Step | Template | Draft | URI | Published |
+|---|---|---|---|---|
+| 01 | PICO Research Question | `drafts/01_pico.md` | _not yet published_ | |
+| 02 | AIDA Sentence | `drafts/02_aida.md` | _not yet published_ | |
+| 03 | FORRT Claim | `drafts/03_claim.md` | _not yet published_ | |
+| 04 | FORRT Replication Study | `drafts/04_study.md` | _not yet published_ | |
+| 05 | FORRT Replication Outcome | `drafts/05_outcome.md` | _not yet published_ | |
+| 06 | CiTO Citation | `drafts/06_citation.md` | _not yet published_ | |
 
 ## Optional layers
 
-| Step | Template | URI | Published |
-|---|---|---|---|
-| 07 | Research Software (if applicable) | _not applicable / not yet published_ | |
-| 08 | Research Synthesis (if applicable) | _not applicable / not yet published_ | |
+| Step | Template | Draft | URI | Published |
+|---|---|---|---|---|
+| 07 | Research Software | `drafts/07_research_software.md` | _not yet published_ | |
 
 ## Format
 

@@ -1,56 +1,55 @@
 # 06 — CiTO Citation
 
-> Run the pre-flight checklist in `docs/forrt-form-fields.md` § Pre-flight checklist before drafting.
+> Closes the core chain. `Identifier for the citing creative work` = the
+> **Outcome URI** (step 05). This is a **question-rooted** chain with no original
+> paper to confirm/dispute, so the citations **credit** the reused method/software,
+> name the detection method, and cite the validation data source (same pattern as
+> the sibling cellprofiler-eo chain).
 
-**Description:** *"Declare citations between papers or other works, using Citation Typing Ontology"*
+## Form fields (`docs/forrt-form-fields.md` § Citation with CiTO)
 
-## Field-by-field draft
+`Identifier for the citing creative work` (required) · `List citations` (repeatable, ≥1), each with `Citation Type` (dropdown) + `DOI or other URL`
 
-### Identifier for the citing creative work (text input, required)
+---
 
-URI of the Outcome published in step 05. Pull from `nanopubs/PUBLISHED.md`.
-
-```
-
-```
-
-### List citations (repeatable group, required ≥1)
-
-#### Citation 1 — back to the original paper
-
-##### Citation Type (dropdown)
-
-Choose based on the Outcome's validation status:
-
-- Validated → `confirms`
-- PartiallySupported → `qualifies`
-- Contradicted → `disputes`
-
-For question-rooted chains where there is no original paper to confirm/dispute, use `usesMethodIn` or `citesAsAuthority` for the methodology paper(s).
-
-> **Note:** `replicates` is NOT in the Science Live dropdown (despite existing in upstream CiTO). When citing a notebook/tutorial that was directly reused, use **`credits`** instead.
+### Identifier for the citing creative work (required)
 
 ```
-
+<paste Outcome URI from PUBLISHED.md step 05 after publishing>
 ```
 
-##### DOI or other URL of the cited work (text input)
+### List citations
 
-```
-https://doi.org/gxy.io/GTN:T00181
-```
+#### Citation 1 — the reused Galaxy training material / method
 
-#### Additional citations (optional)
+- **Citation Type:** `credits`
+- **DOI or other URL:** `https://gxy.io/GTN:T00181`
 
-If the Outcome cites methods papers, related replications, or upstream tools, add them here.
+> The replication input: the Galaxy Training Network tutorial *"Introduction to
+> Image Analysis using Galaxy"* (counts cell nuclei), reused unchanged on melt
+> ponds. Cited by its stable PURL — `credits` is the CiTO type for a directly
+> reused tutorial (`replicates` is not offered by the platform).
 
-- _Type: ___ → URL: ___
+#### Citation 2 — the reused image-analysis software
 
-## Publication note
+- **Citation Type:** `credits`
+- **DOI or other URL:** `https://doi.org/10.7717/peerj.453`
 
-After publishing, paste the resulting URI into `nanopubs/PUBLISHED.md` step 06.
+> scikit-image, the library the Galaxy `imgteam` tools wrap to do the
+> thresholding / labelling / measurement.
 
-This completes the six-step FORRT chain. Optional next layers:
+#### Citation 3 — the supraglacial-water detection method
 
-- **Research Software** (`drafts/07_research_software.md`) — if the repo *produces* a reusable software artefact.
-- **Research Synthesis** (`drafts/08_synthesis.md`) — if this chain is one of several testing facets of a shared property.
+- **Citation Type:** `usesMethodIn`
+- **DOI or other URL:** `https://doi.org/10.5194/tc-12-3045-2018`
+
+> Williamson et al. (2018) — the NDWIice index and the 0.25 threshold used to turn
+> the bands into a water mask.
+
+#### Citation 4 — the validation data source (ground truth)
+
+- **Citation Type:** `citesAsDataSource`
+- **DOI or other URL:** `https://doi.org/10.5281/zenodo.11645884`
+
+> Glen et al. (2024) — the independently published Sentinel-2 lake outlines the
+> detection was benchmarked against.

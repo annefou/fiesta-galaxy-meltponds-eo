@@ -1,63 +1,56 @@
-# 07 — Research Software (optional)
+# 07 — Research Software (optional layer)
 
-> Run the pre-flight checklist in `docs/forrt-form-fields.md` § Pre-flight checklist before drafting.
->
-> **Scope check:** Research Software nanopubs describe **reusable software artefacts** — tools people would `pip install` or `git clone` to use in their own work. They do NOT describe one-off demo / reproduction repos. If your repo is a reproduction of someone else's paper, the reusable artefact is the *upstream library* it uses (e.g. `foscat`, `planktonclas`), not your reproduction repo. Author the Research Software nanopub for the upstream tool, not the demo. See `CLAUDE.md` § Layered architecture: FORRT vs Research Software.
+> Published **after** the six-step core chain. Describes the reusable artefact this
+> work produced: the **importable Galaxy melt-pond workflow** (`workflows/
+> meltpond_mapping_sentinel2.ga`) — others can import it into any Galaxy and point
+> the same threshold → label → count → measure chain at their own Sentinel-2 (or
+> other single-band) imagery. `Research Project` back-links to the **Claim URI**
+> (step 03). (Same layer the sibling cellprofiler-eo chain published.)
 
-**Form heading:** *"Research Software — Describe research software with metadata including repository, supporting publications, and related resources."*
+## Form fields (`docs/forrt-form-fields.md` § Research Software)
 
-## Field-by-field draft
+`URI of published software` (required, full URL) · `Software Title` · `Repository URL` · `Research Project` (optional) · `License` (optional) · `Related Datasets` (optional, repeatable) · `Related Publications` (optional, repeatable)
 
-### URI of published software (text input, required)
+---
 
-Zenodo concept DOI URL when available, or a GitHub URL. Full URL form.
-
-```
-10.5281/zenodo.20943752
-```
-
-### Software Title (text input, required)
-
-The full name or title of the software.
+### URI of published software (required) — Zenodo concept DOI
 
 ```
-
+https://doi.org/10.5281/zenodo.20943752
 ```
 
-### Repository URL (text input, required)
+### Software Title
+
+```
+FIESTA — Galaxy melt-pond mapping workflow (off-the-shelf bioimage tools on Sentinel-2)
+```
+
+### Repository URL
 
 ```
 https://github.com/annefou/fiesta-galaxy-meltponds-eo
 ```
 
-### Research Project (text input, optional)
-
-URI of the FORRT Claim or PCC question this software is associated with — pull from `nanopubs/PUBLISHED.md`. This is the back-link to the FORRT chain.
+### Research Project (optional) — back-link to the Claim URI (step 03)
 
 ```
-
+<paste Claim URI from PUBLISHED.md step 03 after publishing>
 ```
 
-### License (text input, optional)
+### License (optional)
 
 ```
 https://spdx.org/licenses/MIT.html
 ```
 
-### Related Datasets (repeatable group, optional)
+### Related Datasets (optional, repeatable — one URL each)
 
-Input data DOIs (Zenodo data records, dataset DOIs, ESA product DOIs).
+- Sentinel-2 L2A (input imagery), AWS Open Data: `https://registry.opendata.aws/sentinel-2-l2a-cogs/`
+- Glen et al. (2024) lake outlines (validation): `https://doi.org/10.5281/zenodo.11645884`
 
-- _Dataset URL 1: ___
-- _Dataset URL 2: ___
+### Related Publications (optional, repeatable — one URL each)
 
-### Related Publications (repeatable group, optional)
-
-One-way back-links to the FORRT Outcome URI(s) the software implements, plus any cited methods papers.
-
-- _Publication URL 1 (FORRT Outcome from step 05): ___
-- _Publication URL 2 (methods paper, optional): ___
-
-## Publication note
-
-After publishing, paste the resulting URI into `nanopubs/PUBLISHED.md` step 07.
+- The FORRT Outcome this software implements: `<paste Outcome URI from PUBLISHED.md step 05 after publishing>`
+- Reused Galaxy training material / method: `https://gxy.io/GTN:T00181`
+- Reused image-analysis software (scikit-image): `https://doi.org/10.7717/peerj.453`
+- Supraglacial-water detection method (Williamson 2018): `https://doi.org/10.5194/tc-12-3045-2018`
