@@ -171,6 +171,10 @@ for b, role in (("B02", "blue"), ("B03", "green"), ("B04", "red")):
     with rasterio.open(RAW / f"{SCENE}_{b}_{role}.tif") as src:
         bands[b] = src.read(1).astype("float32")
 tci = np.dstack([stretch(bands["B04"]), stretch(bands["B03"]), stretch(bands["B02"])])
+# washed-out greyscale backdrop: keeps the satellite texture as faint context but
+# lets the (near-opaque) agreement colours stand out instead of blending into the ice
+_lum = 0.2126 * tci[..., 0] + 0.7152 * tci[..., 1] + 0.0722 * tci[..., 2]
+backdrop = np.dstack([_lum, _lum, _lum]) * 0.5 + 0.4  # pale grey, range ~0.4–0.9
 
 # Okabe-Ito colour-blind-safe palette (distinguishable for all common colour
 # vision deficiencies) — replaces the red/green agreement colours.
@@ -180,12 +184,12 @@ OI_GLEN = (0.0, 0.447, 0.698)    # #0072B2 blue — Glen only (FN)
 
 pred = ndwi_s > 0.25
 agree = np.zeros((H, W, 4), dtype=float)
-agree[pred & gt_mask] = (*OI_AGREE, 0.65)      # TP
-agree[pred & ~gt_mask] = (*OI_OURS, 0.65)      # FP (ours only)
-agree[~pred & gt_mask] = (*OI_GLEN, 0.65)      # FN (Glen only)
+agree[pred & gt_mask] = (*OI_AGREE, 0.95)      # TP
+agree[pred & ~gt_mask] = (*OI_OURS, 0.95)      # FP (ours only)
+agree[~pred & gt_mask] = (*OI_GLEN, 0.95)      # FN (Glen only)
 
 fig, ax = plt.subplots(1, 2, figsize=(15, 7.5))
-ax[0].imshow(tci); ax[0].imshow(agree)
+ax[0].imshow(backdrop); ax[0].imshow(agree)
 ax[0].set_title("This study vs Glen et al. 2024 lakes\n"
                 f"green=agree  orange=ours only  blue=Glen only  (IoU={summary['this_study_vs_lakes']['iou']})")
 ax[1].bar(range(len(table)), table["iou"], color=[OI_GLEN, OI_OURS, OI_AGREE])
