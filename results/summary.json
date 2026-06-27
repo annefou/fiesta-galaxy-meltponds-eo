@@ -1,9 +1,9 @@
 {
-  "n_ponds_all": 90,
-  "n_ponds_ge5px": 57,
-  "total_water_km2": 1.458,
+  "n_ponds": 85,
+  "n_ponds_ge_500m2": 55,
+  "total_water_km2": 1.457,
   "largest_pond_km2": 0.636,
-  "largest_pond_px": 6363,
   "median_pond_m2": 900.0,
-  "count_objects_value": "90"
+  "threshold_ndwi_ice": 0.25,
+  "pixel_area_m2": 100.0
 }

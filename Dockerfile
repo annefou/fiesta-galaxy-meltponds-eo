@@ -1,0 +1,20 @@
+FROM ghcr.io/prefix-dev/pixi:0.71.1
+
+LABEL org.opencontainers.image.source="https://github.com/annefou/fiesta-galaxy-meltponds-eo"
+LABEL org.opencontainers.image.description="Replication study container for fiesta-galaxy-meltponds-eo"
+LABEL org.opencontainers.image.licenses="MIT"
+
+WORKDIR /app
+
+# Install the pinned environment first (separate from source copy so the lock
+# layer is cached across source-only edits).
+COPY pixi.toml pixi.lock /app/
+RUN pixi install --locked
+
+COPY . /app
+
+# Mount any required credentials at runtime, e.g.:
+#   docker run -v ~/.cdsapirc:/home/mambauser/.cdsapirc fiesta-galaxy-meltponds-eo
+# See data/README.md for per-dataset credential setup.
+
+CMD ["pixi", "run", "snakemake", "--cores", "1"]

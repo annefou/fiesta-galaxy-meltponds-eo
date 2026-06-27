@@ -1,0 +1,49 @@
+# Single source of truth for the runtime — used by local dev, Docker, and CI.
+# Add every dependency a notebook imports here. Local "kitchen-sink" envs hide
+# missing deps; CI builds strictly from this file.
+#
+# pixi.lock (committed alongside this file) pins every package to an exact build
+# hash per platform. Regenerate it with `pixi install` after editing this file;
+# commit both files in the same commit.
+
+[workspace]
+name = "fiesta-galaxy-meltponds-eo"
+channels = ["conda-forge", "bioconda"]
+platforms = ["linux-64", "osx-arm64"]
+
+[dependencies]
+python = "3.12.*"
+# --- core scientific stack ---
+numpy = "*"
+pandas = ">=2.0"
+scipy = "*"
+matplotlib-base = "*"
+# --- arrays + geospatial I/O (NetCDF over .npz — see DOMAIN.md) ---
+xarray = ">=2024.6"
+netcdf4 = "*"
+rasterio = ">=1.3"
+# --- image analysis (mirrors the Galaxy imgteam pipeline locally) ---
+scikit-image = ">=0.22"
+tifffile = "*"
+imageio = "*"
+# --- notebook execution ---
+jupytext = "*"
+nbclient = "*"
+ipykernel = "*"
+# --- pipeline driver ---
+snakemake-minimal = "*"
+
+[feature.docs.dependencies]
+mystmd = "*"
+
+[feature.tests.dependencies]
+pytest = "*"
+
+[environments]
+default = { solve-group = "default" }
+docs = { features = ["docs"], solve-group = "default" }
+tests = { features = ["tests"], solve-group = "default" }
+
+[tasks]
+run = "snakemake --cores 1"
+lab = "jupyter lab"
