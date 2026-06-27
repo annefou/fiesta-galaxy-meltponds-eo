@@ -38,3 +38,35 @@ keywords:
   - NDWI
   - FIESTA
   - OSCARS
+# This is a question-rooted, method-reuse FORRT chain (no original paper to
+# confirm/dispute): the references below credit the reused Galaxy training
+# material (cited by its stable PURL), the reused image-analysis tools, the
+# water-index method, and the validation dataset.
+references:
+  - type: url
+    title: "Introduction to Image Analysis using Galaxy — Galaxy Training Network tutorial (reused method, applied cross-discipline)"
+    url: "https://gxy.io/GTN:T00181"
+  - type: software
+    title: "Galaxy Image Analysis (imgteam / BMCV Heidelberg) — scikit-image-based Galaxy image-analysis tools"
+    repository-code: "https://github.com/BMCV/galaxy-image-analysis"
+  - type: article
+    title: "Dual-satellite (Sentinel-2 and Landsat 8) remote sensing of supraglacial lakes in Greenland"
+    authors:
+      - family-names: "Williamson"
+        given-names: "Andrew G."
+    year: "2018"
+    doi: "10.5194/tc-12-3045-2018"
+  - type: article
+    title: "Mapping supraglacial meltwater channels and lakes, SW Greenland"
+    authors:
+      - family-names: "Glen"
+        given-names: "Kira"
+    year: "2025"
+    doi: "10.5194/tc-19-1047-2025"
+  - type: article
+    title: "scikit-image: image processing in Python"
+    authors:
+      - family-names: "van der Walt"
+        given-names: "Stéfan"
+    year: "2014"
+    doi: "10.7717/peerj.453"

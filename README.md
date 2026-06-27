@@ -4,6 +4,12 @@
 [![Jupyter Book](https://img.shields.io/badge/book-online-blue)](https://annefou.github.io/fiesta-galaxy-meltponds-eo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+<p>
+  <img src="figures/logos/oscars.png" height="46" alt="OSCARS" />
+  &nbsp;<img src="figures/logos/fiesta.png" height="46" alt="FIESTA" />
+  &nbsp;<img src="figures/logos/galaxy.png" height="46" alt="Galaxy" />
+</p>
+
 **A cross-discipline OSCARS–FIESTA example.** This repository takes the *standard*
 Galaxy bioimage-analysis workflow — the exact "threshold → label → count →
 measure" chain that the
@@ -78,6 +84,31 @@ A 10 km × 10 km clip of the public scene `S2A_22WEV_20190723_0_L2A` (tile T22WE
 each. Full provenance and licence: [`data/provenance.md`](data/provenance.md).
 Independent lake outlines for validation: Glen et al. (2025),
 [Zenodo 10.5281/zenodo.11645884](https://doi.org/10.5281/zenodo.11645884).
+
+## Reproducibility & FORRT replication
+
+This repository is a self-contained research compendium built from the
+[Science Live FORRT replication template](https://github.com/ScienceLiveHub/forrt-replication-template).
+It is a **question-rooted, method-reuse replication**: rather than confirming or
+disputing a paper, it takes a published, persistently-identified Galaxy training
+workflow and tests whether the same method travels to a different discipline.
+
+- **Reused method (replication input):** the Galaxy Training Network tutorial
+  *Introduction to Image Analysis using Galaxy* —
+  [`gxy.io/GTN:T00181`](https://gxy.io/GTN:T00181) (counts stained cell nuclei).
+- **This work:** the identical `imgteam` workflow, unchanged, applied to
+  Sentinel-2 imagery to count Greenland supraglacial melt ponds.
+- **Verifiable artifacts:** the public
+  [Galaxy history](https://usegalaxy.eu/published/history?id=11ac94870d0bb33aee961e7883fc2313),
+  the importable [`.ga`](workflows/meltpond_mapping_sentinel2.ga), the Zenodo
+  archive ([DOI 10.5281/zenodo.20943752](https://doi.org/10.5281/zenodo.20943752)),
+  and a Science Live **nanopublication chain** ([`nanopubs/`](nanopubs/)) that
+  records the claim, study, and CiTO citations crediting the reused tutorial and
+  tools.
+
+The AI-guided workflow that produced this compendium is documented in
+[`CLAUDE.md`](CLAUDE.md) / [`AGENTS.md`](AGENTS.md); FORRT conventions live in
+[`docs/`](docs/).
 
 ## How this fits the FIESTA cross-discipline family
 
