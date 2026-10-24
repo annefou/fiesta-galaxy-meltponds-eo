@@ -1,55 +1,65 @@
 # 06 — CiTO Citation
 
-> Closes the core chain. `Identifier for the citing creative work` = the
-> **Outcome URI** (step 05). This is a **question-rooted** chain with no original
-> paper to confirm/dispute, so the citations **credit** the reused method/software,
-> name the detection method, and cite the validation data source (same pattern as
-> the sibling cellprofiler-eo chain).
+> Run the pre-flight checklist in `docs/forrt-form-fields.md` § Pre-flight checklist before drafting.
 
-## Form fields (`docs/forrt-form-fields.md` § Citation with CiTO)
+**Description:** *"Declare citations between papers or other works, using Citation Typing Ontology"*
 
-`Identifier for the citing creative work` (required) · `List citations` (repeatable, ≥1), each with `Citation Type` (dropdown) + `DOI or other URL`
+## Field-by-field draft
 
----
+<!-- field: work -->
+### Identifier for the citing creative work (text input, required)
 
-### Identifier for the citing creative work (required)
+URI of the Outcome published in step 05. Pull from `nanopubs/PUBLISHED.md`.
 
 ```
-<paste Outcome URI from PUBLISHED.md step 05 after publishing>
+
 ```
 
-### List citations
+### List citations (repeatable group, required ≥1)
 
-#### Citation 1 — the reused Galaxy training material / method
+#### Citation 1 — back to the original paper
 
-- **Citation Type:** `credits`
-- **DOI or other URL:** `https://gxy.io/GTN:T00181`
+##### Citation Type (dropdown)
 
-> The replication input: the Galaxy Training Network tutorial *"Introduction to
-> Image Analysis using Galaxy"* (counts cell nuclei), reused unchanged on melt
-> ponds. Cited by its stable PURL — `credits` is the CiTO type for a directly
-> reused tutorial (`replicates` is not offered by the platform).
+Choose based on the Outcome's validation status:
 
-#### Citation 2 — the reused image-analysis software
+- Validated → `confirms`
+- PartiallySupported → `qualifies`
+- Contradicted → `disputes`
 
-- **Citation Type:** `credits`
-- **DOI or other URL:** `https://doi.org/10.7717/peerj.453`
+For question-rooted chains where there is no original paper to confirm/dispute, use `usesMethodIn` or `citesAsAuthority` for the methodology paper(s).
 
-> scikit-image, the library the Galaxy `imgteam` tools wrap to do the
-> thresholding / labelling / measurement.
+Write the chosen type in the block below (a vocabulary label such as `cites as authority`, or `citesAsAuthority`). `build-chain-draft` uses it as written; leave the block empty to have the type derived from the Outcome's validation status, which is right for paper-rooted chains only.
 
-#### Citation 3 — the supraglacial-water detection method
+> **Note:** `replicates` is NOT in the Science Live dropdown (despite existing in upstream CiTO). When citing a notebook/tutorial that was directly reused, use **`credits`** instead.
 
-- **Citation Type:** `usesMethodIn`
-- **DOI or other URL:** `https://doi.org/10.5194/tc-12-3045-2018`
+```
+uses method in
+```
 
-> Williamson et al. (2018) — the NDWIice index and the 0.25 threshold used to turn
-> the bands into a water mask.
+##### DOI or other URL of the cited work (text input)
 
-#### Citation 4 — the validation data source (ground truth)
+Must be a DOI (`https://doi.org/...`): the first citation is the work the chain is about. Leave the placeholder to use the paper in `CITATION.cff`. Links to other works, such as another chain's nanopublication, go under *Additional citations* below.
 
-- **Citation Type:** `citesAsDataSource`
-- **DOI or other URL:** `https://doi.org/10.5281/zenodo.11645884`
+```
+https://doi.org/10.5194/tc-12-3045-2018
+```
 
-> Glen et al. (2024) — the independently published Sentinel-2 lake outlines the
-> detection was benchmarked against.
+#### Additional citations (optional)
+
+If the Outcome cites methods papers, related replications, or upstream tools, add them here.
+
+One line per further citation, in this exact form (each becomes a pre-filled row):
+
+- Type: credits → URL: https://gxy.io/GTN:T00181
+- Type: credits → URL: https://doi.org/10.7717/peerj.453
+- Type: cites as data source → URL: https://doi.org/10.5281/zenodo.11645884
+
+## Publication note
+
+After publishing, paste the resulting URI into `nanopubs/PUBLISHED.md` step 06.
+
+This completes the six-step FORRT chain. Optional next layers:
+
+- **Research Software** (`drafts/07_research_software.md`) — if the repo *produces* a reusable software artefact.
+- **Research Synthesis** (`drafts/08_synthesis.md`) — if this chain is one of several testing facets of a shared property.

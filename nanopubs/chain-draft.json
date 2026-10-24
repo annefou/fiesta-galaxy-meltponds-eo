@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "kind": "forrt-chain-draft",
+  "chain_shape": "pico",
+  "source": {
+    "repository": "https://github.com/annefou/fiesta-galaxy-meltponds-eo",
+    "commit": "8f8d09293d18a441cde75283f0c6955e4c1b5357",
+    "figure": "figures/main_result.png"
+  },
+  "steps": [
+    {
+      "step": "01_pico",
+      "template_key": "PICO_RESEARCH_QUESTION",
+      "template_uri": "https://w3id.org/np/RA5e5XeXy_-aNK5giB7kBAEQslTLVydHeM4YYEzhmEE2w",
+      "prefill": {
+        "pico": "meltpond-offtheshelf-bioimage-pico",
+        "label": "Can an off-the-shelf bioimage-analysis workflow count supraglacial melt ponds on Sentinel-2 imagery?",
+        "description": "In Sentinel-2 optical imagery of the Greenland ice-sheet ablation zone containing supraglacial melt ponds (Population), does the standard off-the-shelf Galaxy bioimage-analysis workflow — water-index thresholding, connected-component labelling, and object counting and measurement — reused without modification from a cell-nuclei-counting tutorial (Intervention), compared with an independently published, purpose-built supraglacial-lake mapping product and with alternative thresholding choices (Comparator), detect and quantify the melt ponds with detection agreement and total melt-water area comparable to the published mapping (Outcome)?",
+        "type": "https://w3id.org/sciencelive/o/terms/EffectivenessResearchQuestions",
+        "populationDescription": "Supraglacial meltwater features in Sentinel-2 Level-2A optical imagery of the south-west Greenland ice-sheet ablation zone (Russell–Leverett / Isunnguata Sermia margin) — a 10 km × 10 km, 10 m-resolution chip of scene S2A_22WEV_20190723, acquired 2019-07-23.",
+        "interventionGroupDescription": "The generic, deployed Galaxy \"imgteam\" bioimage-analysis workflow — a normalised-difference water index computed from two bands, median denoising, thresholding, connected-component labelling, and per-object counting and area measurement — reused without modification from the Galaxy Training Network tutorial \"Introduction to Image Analysis using Galaxy\" (gxy.io/GTN:T00181), which uses the same tool chain to count stained cell nuclei.",
+        "comparatorGroupDescription": "An independently produced, purpose-built supraglacial-lake mapping dataset for the same area and melt season (Glen et al. 2024, Sentinel-2 lake outlines, nearest acquisition 2019-07-25), and alternative thresholding choices on the same imagery (automatic Otsu; the more permissive Moussavi et al. 2020 water-index threshold).",
+        "outcomeGroupDescription": "Detection agreement against the published lake outlines (precision, recall, F1 and intersection-over-union), the number of detected melt ponds, and the total melt-water area (km²)."
+      },
+      "provenance": {
+        "pico": "nanopubs/drafts/01_pico.md",
+        "label": "nanopubs/drafts/01_pico.md",
+        "description": "nanopubs/drafts/01_pico.md",
+        "type": "nanopubs/drafts/01_pico.md",
+        "populationDescription": "nanopubs/drafts/01_pico.md",
+        "interventionGroupDescription": "nanopubs/drafts/01_pico.md",
+        "comparatorGroupDescription": "nanopubs/drafts/01_pico.md",
+        "outcomeGroupDescription": "nanopubs/drafts/01_pico.md"
+      },
+      "manual": [
+        "type"
+      ],
+      "published_uri": null
+    },
+    {
+      "step": "02_aida",
+      "template_key": "AIDA_SENTENCE",
+      "template_uri": "https://w3id.org/np/RALmXhDw3rHcMveTgbv8VtWxijUHwnSqhCmtJFIPKWVaA",
+      "prefill": {
+        "aida": "The off-the-shelf Galaxy bioimage-analysis workflow, reused without modification from cell-nuclei counting, detects supraglacial melt water on Sentinel-2 imagery of the Greenland ice sheet and recovers about 88 percent of the area of independently mapped supraglacial lakes for the same location and melt season.",
+        "topic": [
+          {
+            "uri": "http://www.wikidata.org/entity/Q199687",
+            "label": "remote sensing"
+          },
+          {
+            "uri": "http://www.wikidata.org/entity/Q56933",
+            "label": "image segmentation"
+          },
+          {
+            "uri": "http://www.wikidata.org/entity/Q52120",
+            "label": "glaciology"
+          }
+        ],
+        "st3": [
+          {
+            "dataset": "https://doi.org/10.5281/zenodo.11645884"
+          }
+        ],
+        "st4": [
+          {
+            "publication": "https://doi.org/10.5194/tc-12-3045-2018"
+          }
+        ]
+      },
+      "provenance": {
+        "aida": "nanopubs/drafts/02_aida.md",
+        "topic": "nanopubs/drafts/02_aida.md + Wikidata",
+        "st3": "nanopubs/drafts/02_aida.md",
+        "st4": "nanopubs/drafts/02_aida.md"
+      },
+      "published_uri": null
+    },
+    {
+      "step": "03_claim",
+      "template_key": "FORRT_CLAIM",
+      "template_uri": "https://w3id.org/np/RAZWyM8D16ya3S1zhCvrG1f0iSpd9-8onVWp0FTvvX7LQ",
+      "prefill": {
+        "claim": "meltpond-offtheshelf-detection",
+        "label": "Off-the-shelf bioimage tools detect supraglacial melt ponds on Sentinel-2 (cross-discipline reuse)",
+        "forrtType": "https://w3id.org/sciencelive/o/terms/model_performance-FORRT-Claim",
+        "source": "https://doi.org/10.5194/tc-12-3045-2018"
+      },
+      "provenance": {
+        "claim": "nanopubs/drafts/03_claim.md",
+        "label": "nanopubs/drafts/03_claim.md",
+        "forrtType": "nanopubs/drafts/03_claim.md",
+        "source": "CITATION.cff"
+      },
+      "manual": [
+        "forrtType"
+      ],
+      "published_uri": null
+    },
+    {
+      "step": "04_study",
+      "template_key": "FORRT_REPLICATION",
+      "template_uri": "https://w3id.org/np/RAuLEjPp-4dTvPwMkfHggTto1CgjIftiGRAgHlyeEonjQ",
+      "prefill": {
+        "study": "meltpond-offtheshelf-study",
+        "label": "Cross-discipline reuse of a Galaxy cell-counting workflow to map Greenland supraglacial melt ponds",
+        "type": "https://w3id.org/sciencelive/o/terms/Replication-Study",
+        "scope": "Whether the generic segment-count-measure behaviour of the Galaxy imgteam image-analysis workflow — threshold an image into a binary mask, label connected components as objects, and count and measure them — holds when the input is Sentinel-2 optical imagery of supraglacial meltwater rather than a fluorescence micrograph of cell nuclei, and how closely the resulting detection matches an independent, purpose-built lake-mapping product. In scope: detection agreement (precision/recall/F1/IoU) against the published lakes, pond count, and total melt-water area, for one Sentinel-2 chip on one date. Out of scope: a full ice-sheet or full-season lake inventory; lake-versus-channel-versus-slush classification; lake depth/volume retrieval; and drainage-event detection.",
+        "methodology": "Two Sentinel-2 Level-2A bands (B02 blue, B04 red) of the melt-zone chip were read directly from the AWS Open Data Cloud-Optimized GeoTIFF archive. The ice-adapted normalised-difference water index NDWIice = (B02 − B04) / (B02 + B04) was computed, median-filtered to suppress single-pixel speckle, thresholded at the established 0.25 cut (Williamson et al. 2018) to a binary water mask, labelled into objects by connected-component analysis, and each object counted and measured (area, mean index). The pipeline was run two ways: interactively on usegalaxy.eu with the deployed imgteam tools (image_math → 2d_simple_filter → 2d_auto_threshold → binary2labelimage → count_objects + 2d_feature_extraction + overlay_images, captured as an importable Galaxy workflow and a public history), and as a hermetic, credential-free local re-implementation (scikit-image, driven by Snakemake) for CI reproducibility. The detection was then benchmarked against the independently published Glen et al. (2024) Sentinel-2 lake outlines for the same area (nearest acquisition 2019-07-25), rasterised to the analysis grid, scoring precision, recall, F1 and intersection-over-union; and against two alternative thresholds on the same imagery (automatic Otsu; the Moussavi et al. 2020 value of 0.19).",
+        "deviation": "Relative to the original Galaxy \"Introduction to Image Analysis\" tutorial (gxy.io/GTN:T00181), only the input domain and the meaning of the threshold changed: fluorescence-microscopy nuclei images were replaced by Sentinel-2 satellite bands, and the stain-intensity threshold was replaced by a water-index threshold (NDWIice > 0.25). One band-math step (image_math) was added to compute the water index from the two input bands; the threshold → label → count → measure tool chain and the tools themselves are unchanged. The Galaxy image tools discard georeferencing, so object areas are reported in pixels and converted at the known 100 m² per pixel.",
+        "keywordSelection": [
+          {
+            "uri": "http://www.wikidata.org/entity/Q2420381",
+            "label": "supraglacial lake"
+          },
+          {
+            "uri": "http://www.wikidata.org/entity/Q1542432",
+            "label": "Greenland ice sheet"
+          },
+          {
+            "uri": "http://www.wikidata.org/entity/Q4302480",
+            "label": "Sentinel-2"
+          },
+          {
+            "uri": "http://www.wikidata.org/entity/Q56933",
+            "label": "image segmentation"
+          },
+          {
+            "uri": "http://www.wikidata.org/entity/Q360925",
+            "label": "meltwater"
+          }
+        ],
+        "disciplineSelection": {
+          "uri": "http://www.wikidata.org/entity/Q52120",
+          "label": "glaciology"
+        }
+      },
+      "provenance": {
+        "study": "nanopubs/drafts/04_study.md",
+        "label": "nanopubs/drafts/04_study.md",
+        "type": "nanopubs/drafts/04_study.md",
+        "scope": "nanopubs/drafts/04_study.md",
+        "methodology": "nanopubs/drafts/04_study.md",
+        "deviation": "nanopubs/drafts/04_study.md",
+        "keywordSelection": "nanopubs/drafts/04_study.md + Wikidata",
+        "disciplineSelection": "nanopubs/drafts/04_study.md + Wikidata"
+      },
+      "manual": [
+        "type"
+      ],
+      "published_uri": null
+    },
+    {
+      "step": "05_outcome",
+      "template_key": "FORRT_REPLICATION_OUTCOME",
+      "template_uri": "https://w3id.org/np/RA2zljn0Nw9SadppOyxZoh-_Rxosslrq-vYG-p9SttnJE",
+      "prefill": {
+        "outcome": "meltpond-offtheshelf-outcome",
+        "label": "Off-the-shelf bioimage workflow recovers ~88% of mapped Greenland melt-lake area",
+        "repo": "https://doi.org/10.5281/zenodo.20943837",
+        "date": "2026-06-26",
+        "validationStatus": "https://w3id.org/sciencelive/o/terms/PartiallySupported",
+        "conclusion": "The off-the-shelf Galaxy bioimage-analysis workflow transfers cross-discipline: applied without modification to a Sentinel-2 image, the same threshold → label → count → measure chain that counts cell nuclei detects supraglacial melt water on the Greenland ice sheet. It recovers about 88 percent of the area of the independently mapped supraglacial lakes (Glen et al. 2024) for the same location and melt season, and the total melt-water area is reproducible to three significant figures between an interactive Galaxy run (90 ponds, 1.46 km²) and a hermetic local re-implementation (85 ponds, 1.457 km²). The transfer is only partially supported as a lakes inventory, because a single water-index threshold also flags meltwater channels and crevasse water that the purpose-built product catalogs separately.",
+        "evidence": "Detection: Galaxy run (public history below) = 90 ponds, 1.46 km² melt water, largest lake 0.64 km²; hermetic local re-implementation (results/summary.json) = 85 ponds, 1.457 km² — agreeing to 3 significant figures on area. Benchmark against Glen et al. (2024) Sentinel-2 lake outlines for tile T22WEV, 2019-07-25 (2 days after our scene), rasterised to the analysis grid (results/validation_summary.json): precision 0.58, recall 0.88, F1 0.70, IoU 0.54 versus the mapped lakes. Method comparison on the same chip (results/validation_methods.csv): IoU = 0.54 (NDWIice > 0.25, this study) vs 0.44 (Moussavi 2020 threshold, 0.19) vs 0.56 (automatic Otsu). Reproducible public Galaxy history: https://usegalaxy.eu/published/history?id=11ac94870d0bb33aee961e7883fc2313 . Archived release: https://doi.org/10.5281/zenodo.20943837 .",
+        "confidenceLevel": "https://w3id.org/sciencelive/o/terms/HighConfidence",
+        "limitations": "A single 10 km × 10 km chip on a single date, not a full ice-sheet or full-season inventory. The ground-truth outlines are 2 days after our scene, an irreducible source of disagreement for these ephemeral features. A single NDWIice threshold does not separate lakes from channels and slush, so it over-detects relative to a lakes-only inventory (precision 0.58); automatic Otsu matches the published lakes marginally better than the literature 0.25 cut. The Galaxy image tools discard georeferencing, so areas are pixel counts converted at 100 m² per pixel. No lake depth, volume, or drainage dynamics are retrieved. The local count (85) and Galaxy count (90) differ slightly because of median-filter implementation details, though the melt-water area agrees to 3 significant figures."
+      },
+      "provenance": {
+        "outcome": "nanopubs/drafts/05_outcome.md",
+        "label": "nanopubs/drafts/05_outcome.md",
+        "repo": "CITATION.cff",
+        "date": "CITATION.cff",
+        "validationStatus": "nanopubs/drafts/05_outcome.md",
+        "conclusion": "nanopubs/drafts/05_outcome.md",
+        "evidence": "nanopubs/drafts/05_outcome.md",
+        "confidenceLevel": "nanopubs/drafts/05_outcome.md",
+        "limitations": "nanopubs/drafts/05_outcome.md"
+      },
+      "manual": [
+        "validationStatus",
+        "confidenceLevel"
+      ],
+      "published_uri": null
+    },
+    {
+      "step": "06_citation",
+      "template_key": "CITATION_CITO",
+      "template_uri": "https://w3id.org/np/RA43F9EoOuzF0xoNUnCMNyFsfIqlsuWDdPHCnN0wCdCAw",
+      "prefill": {
+        "st02": [
+          {
+            "cites": "http://purl.org/spar/cito/usesMethodIn",
+            "cited": "https://doi.org/10.5194/tc-12-3045-2018"
+          },
+          {
+            "cites": "http://purl.org/spar/cito/credits",
+            "cited": "https://gxy.io/GTN:T00181"
+          },
+          {
+            "cites": "http://purl.org/spar/cito/credits",
+            "cited": "https://doi.org/10.7717/peerj.453"
+          },
+          {
+            "cites": "http://purl.org/spar/cito/citesAsDataSource",
+            "cited": "https://doi.org/10.5281/zenodo.11645884"
+          }
+        ]
+      },
+      "provenance": {
+        "st02": "cites = nanopubs/drafts/06_citation.md; cited = nanopubs/drafts/06_citation.md; further rows = nanopubs/drafts/06_citation.md"
+      },
+      "published_uri": null
+    }
+  ],
+  "carry_forward": [
+    {
+      "from": "01_pico",
+      "into": "02_aida",
+      "field": "project"
+    },
+    {
+      "from": "02_aida",
+      "into": "03_claim",
+      "field": "aida"
+    },
+    {
+      "from": "03_claim",
+      "into": "04_study",
+      "field": "claim"
+    },
+    {
+      "from": "04_study",
+      "into": "05_outcome",
+      "field": "study"
+    },
+    {
+      "from": "05_outcome",
+      "into": "06_citation",
+      "field": "work"
+    }
+  ]
+}
