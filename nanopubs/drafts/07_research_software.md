@@ -1,56 +1,97 @@
-# 07 — Research Software (optional layer)
+# 07 — Research Software (optional)
 
-> Published **after** the six-step core chain. Describes the reusable artefact this
-> work produced: the **importable Galaxy melt-pond workflow** (`workflows/
-> meltpond_mapping_sentinel2.ga`) — others can import it into any Galaxy and point
-> the same threshold → label → count → measure chain at their own Sentinel-2 (or
-> other single-band) imagery. `Research Project` back-links to the **Claim URI**
-> (step 03). (Same layer the sibling cellprofiler-eo chain published.)
+> Run the pre-flight checklist in `docs/forrt-form-fields.md` § Pre-flight checklist before drafting.
+>
+> **Scope check:** Research Software nanopubs describe **reusable software artefacts** — tools people would `pip install` or `git clone` to use in their own work. They do NOT describe one-off demo / reproduction repos. If your repo is a reproduction of someone else's paper, the reusable artefact is the *upstream library* it uses (e.g. `foscat`, `planktonclas`), not your reproduction repo. Author the Research Software nanopub for the upstream tool, not the demo. See `CLAUDE.md` § Layered architecture: FORRT vs Research Software.
 
-## Form fields (`docs/forrt-form-fields.md` § Research Software)
+**Form heading:** *"Research Software — Describe research software with metadata including repository, supporting publications, and related resources."*
 
-`URI of published software` (required, full URL) · `Software Title` · `Repository URL` · `Research Project` (optional) · `License` (optional) · `Related Datasets` (optional, repeatable) · `Related Publications` (optional, repeatable)
+## Field-by-field draft
 
----
+<!-- field: software -->
+### URI of published software (text input, required)
 
-### URI of published software (required) — Zenodo concept DOI
+Use the Zenodo **version DOI** URL — `https://doi.org/10.5281/zenodo.<N>` for the
+specific release, NOT the concept DOI. Full URL form. Fall back to a GitHub URL
+only if there is no Zenodo deposit at all.
 
-```
-https://doi.org/10.5281/zenodo.20943752
-```
-
-### Software Title
-
-```
-FIESTA — Galaxy melt-pond mapping workflow (off-the-shelf bioimage tools on Sentinel-2)
-```
-
-### Repository URL
-
-```
-https://github.com/annefou/fiesta-galaxy-meltponds-eo
-```
-
-### Research Project (optional) — back-link to the Claim URI (step 03)
+> **Why the version DOI, not the concept DOI.** A concept DOI resolves to
+> whatever version is *latest*. This nanopub is signed and immutable — once
+> published it can only be retracted or superseded, never edited. If it names a
+> concept DOI, then the moment a v0.2.0 is released this permanent record
+> silently starts describing different code, with no signature breakage and
+> nothing to alert a reader. The version DOI pins the snapshot that actually
+> exists behind this assertion.
+>
+> Both DOIs are in `CITATION.cff` under `identifiers:`, recorded automatically at
+> release by `.github/workflows/release-identifiers.yml`. Take the one described
+> as *"Version DOI"*. The concept DOI is correct in `CITATION.cff`'s top-level
+> `doi:` field — "cite this project" — and wrong here.
 
 ```
-<paste Claim URI from PUBLISHED.md step 03 after publishing>
+https://doi.org/{{ZENODO_VERSION_DOI}}
 ```
 
-### License (optional)
+### Software Heritage ID (optional but recommended)
+
+The SWHID from `CITATION.cff` `identifiers:` (`type: swh`). It identifies the
+exact source tree in a preservation archive, so it still resolves if the repo is
+deleted, renamed, or force-pushed — which a DOI pointing at a GitHub URL does
+not. `docs/chain-decision-tree.md` ranks it above the Zenodo DOI for exactly
+this reason.
+
+```
+{{SWHID}}
+```
+
+<!-- field: title -->
+### Software Title (text input, required)
+
+The full name or title of the software.
+
+```
+
+```
+
+<!-- field: repository -->
+### Repository URL (text input, required)
+
+```
+https://github.com/{{REPO_ORG}}/{{REPO_NAME}}
+```
+
+<!-- field: project -->
+### URI of nanopublication for research project that produced software (search/select, required)
+
+URI of the FORRT Claim or PCC question this software is associated with — pull from `nanopubs/PUBLISHED.md`. This is the back-link to the FORRT chain.
+
+```
+
+```
+
+<!-- field: license -->
+### URI of license of published software (text input, optional)
 
 ```
 https://spdx.org/licenses/MIT.html
 ```
 
-### Related Datasets (optional, repeatable — one URL each)
+<!-- field: dataset -->
+### Related Datasets (text input, optional)
 
-- Sentinel-2 L2A (input imagery), AWS Open Data: `https://registry.opendata.aws/sentinel-2-l2a-cogs/`
-- Glen et al. (2024) lake outlines (validation): `https://doi.org/10.5281/zenodo.11645884`
+Input data DOIs (Zenodo data records, dataset DOIs, ESA product DOIs).
 
-### Related Publications (optional, repeatable — one URL each)
+- _Dataset URL 1: ___
+- _Dataset URL 2: ___
 
-- The FORRT Outcome this software implements: `<paste Outcome URI from PUBLISHED.md step 05 after publishing>`
-- Reused Galaxy training material / method: `https://gxy.io/GTN:T00181`
-- Reused image-analysis software (scikit-image): `https://doi.org/10.7717/peerj.453`
-- Supraglacial-water detection method (Williamson 2018): `https://doi.org/10.5194/tc-12-3045-2018`
+<!-- field: researchoutput -->
+### Related Publications (text input, optional)
+
+One-way back-links to the FORRT Outcome URI(s) the software implements, plus any cited methods papers.
+
+- _Publication URL 1 (FORRT Outcome from step 05): ___
+- _Publication URL 2 (methods paper, optional): ___
+
+## Publication note
+
+After publishing, paste the resulting URI into `nanopubs/PUBLISHED.md` step 07.

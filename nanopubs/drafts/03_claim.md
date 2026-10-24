@@ -1,52 +1,62 @@
 # 03 — FORRT Claim
 
-> Links the AIDA to a FORRT claim genre. `Search for an AIDA sentence` = the
-> **AIDA URI** (step 02).
+> Run the pre-flight checklist in `docs/forrt-form-fields.md` § Pre-flight checklist before drafting.
 
-## Form fields (`docs/forrt-form-fields.md` § FORRT Claim)
+**Form heading:** *"FORRT Claim — Declare an original claim according to FORRT, linking it to an AIDA sentence with a specific FORRT type."*
 
-`Short URI suffix as claim ID` · `Label of the claim` · `Search for an AIDA sentence` (required) · `Type of FORRT claim` (dropdown, 7 options) · `Source URI` (optional)
+## Field-by-field draft
 
----
+<!-- field: claim -->
+### Short URI suffix as claim ID (text input, required)
 
-### Short URI suffix as claim ID
+Slug becomes part of the nanopub URI. Use kebab-case.
 
 ```
 meltpond-offtheshelf-detection
 ```
 
-### Label of the claim (descriptive title, not a sentence)
+<!-- field: label -->
+### Label of the claim, to find it later (text input, required)
+
+A descriptive title (not a sentence). Used for searches/discovery.
 
 ```
 Off-the-shelf bioimage tools detect supraglacial melt ponds on Sentinel-2 (cross-discipline reuse)
 ```
 
-### Search for an AIDA sentence (required)
+<!-- field: aida -->
+### Search for an AIDA sentence (search/select, required)
+
+URI of the AIDA published in step 02. Pull from `nanopubs/PUBLISHED.md`.
+
+> _If the AIDA was published via Nanodash (`w3id.org/np/...` namespace), the platform's search may not find it — paste the URI manually._
 
 ```
-<paste AIDA URI from PUBLISHED.md step 02 after publishing>
-```
-
-### Type of FORRT claim (dropdown)
 
 ```
-model performance
+
+<!-- field: forrtType -->
+### Type of FORRT claim (dropdown, required)
+
+Pick one. See `docs/claim-type-vocabulary.md` for the seven options and how to choose.
+
+- [ ] computational performance (Computational & Performance)
+- [ ] data governance (access control, licensing, FAIR compliance)
+- [ ] data quality (preprocessing, validation, normalization)
+- [ ] descriptive pattern (distribution, trend, proportion)
+- [x] model performance (accuracy, F1 score, evaluation metrics)
+- [ ] scalability (Computational & Performance)
+- [ ] statistical significance (significant difference, relationship, or effect)
+
+<!-- field: source -->
+### Source URI (text input, optional)
+
+Full URL form: `https://doi.org/...` (NOT bare DOI).
+
+```
+https://doi.org/10.5281/zenodo.20943837
 ```
 
-> **Rationale / choice for Anne.** The claim asserts a *detection-accuracy* result
-> (recovers ~88 % of mapped lake area; precision/recall/IoU against an independent
-> reference), so `model performance` (accuracy / F1 / evaluation metrics) is the
-> right genre — see `docs/claim-type-vocabulary.md`.
->
-> Note this **differs from the sibling cellprofiler-eo chain**, which used
-> `descriptive pattern` *because it deliberately did not benchmark against a
-> reference catalog*. We do have a quantitative benchmark (Glen et al. 2024), which
-> is exactly what makes `model performance` appropriate here. If you'd rather frame
-> the headline as feasibility-of-transfer rather than accuracy, switch to
-> `descriptive pattern` to match the family — your call.
+## Publication note
 
-### Source URI (optional, full URL form)
-
-```
-https://doi.org/10.5281/zenodo.20943752
-```
+After publishing, paste the resulting URI into `nanopubs/PUBLISHED.md` step 03.
